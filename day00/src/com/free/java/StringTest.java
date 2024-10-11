@@ -13,5 +13,7 @@ public class StringTest {
         int i2=1>2?1:2;
         System.out.println(i2);
 
+        //char类型中必须有一个字符，不能为空
+        char c=' ';
     }
 }
