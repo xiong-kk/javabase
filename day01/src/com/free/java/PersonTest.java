@@ -10,6 +10,7 @@ public class PersonTest {
         person.eat();
         person.sleep();
         person.talk("中文");
+        person.skill("java","c","c++");
     }
 }
 class Person{
@@ -25,5 +26,12 @@ class Person{
     }
     public void talk(String language){
         System.out.println("人说话，语言是"+language);
+    }
+    //可变个数的形参
+    public void skill(String ... skills){
+        for (int i = 0; i < skills.length; i++) {
+            System.out.println(skills[i]);
+        }
+
     }
 }
