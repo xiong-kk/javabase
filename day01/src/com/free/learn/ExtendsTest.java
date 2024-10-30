@@ -18,5 +18,16 @@ public class ExtendsTest {
         s1.setAge(10);
         System.out.println(s1.getAge());
 
+        Person p2=new Person();
+        p2.eat();
+
+        Man m1=new Man();
+        m1.eat();
+        m1.earn();
+
+
+        Person p3=new Man();
+        p3.eat();
+
     }
 }
