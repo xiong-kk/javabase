@@ -6,6 +6,7 @@ package com.free.java;
 public class ObjectTest {
     public static void main(String[] args) {
         Order order=new Order();
+        //获取父类
         System.out.println(order.getClass().getSuperclass());
     }
 }

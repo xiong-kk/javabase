@@ -29,5 +29,12 @@ public class ExtendsTest {
         Person p3=new Man();
         p3.eat();
 
+        //向下转型。需要先进行判断
+        if(p3 instanceof Man){
+            Man m2=(Man)p3;
+            m2.earn();
+            System.out.println("man");
+        }
+
     }
 }
