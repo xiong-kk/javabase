@@ -7,6 +7,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * @author free
  * @create 2024-05-08-21:56
+ * 使用线程池创建线程
  */
 public class ThreadPool {
     public static void main(String[] args) {
@@ -15,7 +16,9 @@ public class ThreadPool {
         service1.setCorePoolSize(15);
 
 
+        //适合runnable方式
         service1.execute(new NumberThread());
+        //适合callable方式
         service1.submit(new NumThread());
         //关闭线程池
         service1.shutdown();
