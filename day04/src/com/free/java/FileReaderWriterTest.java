@@ -44,6 +44,48 @@ public class FileReaderWriterTest {
     }
 
     @Test
+    public void testFileReader1() {
+        //读入的文件一定要存在
+        File file = new File("hello.txt");
+        FileReader fr = null;
+        try {
+            fr = new FileReader(file);
+            char[] chars=new char[5];
+            //返回读入的一个字符，如果达到文件末尾，返回-1
+            //最后一次如果没有读满，后面的数据会保留上一次读取的。
+            int len;
+            while ((len=fr.read(chars)) != -1) {
+                for (int i = 0; i < len; i++) {
+                    System.out.print(chars[i]);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+
+            try {
+                if (fr != null) {
+                    fr.close();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    @Test
+    public void testFileWriter() throws IOException {
+        File file = new File("hello.txt");
+        FileWriter writer=new FileWriter(file,true);
+        writer.write("dream\n");
+        writer.write("you and me\n");
+        writer.close();
+    }
+    @Test
     public void testBuffer(){
         File file=new File("hello.txt");
         FileReader fr=null;
@@ -76,7 +118,7 @@ public class FileReaderWriterTest {
             }
         }
 
-        list.forEach(System.out::println);
+        //list.forEach(System.out::println);
     }
 
 
