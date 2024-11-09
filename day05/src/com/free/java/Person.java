@@ -5,8 +5,16 @@ package com.free.java;
  * @create 2023-01-06-20:44
  */
 public class Person{
-    private int age;
+    public int age;
     private String name;
+
+    public Person() {
+    }
+
+    public Person(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
 
     public int getAge() {
         return age;
@@ -30,5 +38,13 @@ public class Person{
                 "age=" + age +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void show(){
+        System.out.println("你好，我是一个人");
+    }
+    private String showNation(String nation){
+        System.out.println("我的国籍是"+nation);
+        return nation;
     }
 }

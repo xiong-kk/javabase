@@ -1,5 +1,12 @@
 package com.free.java;
 
+import org.junit.Test;
+
+import java.lang.annotation.ElementType;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
 /**
  * @author free
  * @create 2023-01-06-16:54
@@ -28,6 +35,57 @@ public class ClassTest {
         System.out.println(class1==class2);
         System.out.println(class2==class3);
         System.out.println(class3==class4);
+
+
+    }
+
+    @Test
+    public void test() throws Exception {
+        Class clazz=Person.class;
+        Constructor constructor = clazz.getConstructor(int.class, String.class);
+
+        Object obj = constructor.newInstance(12, "TOM");
+        System.out.println(obj.toString());
+
+        Field age = clazz.getDeclaredField("age");
+        age.set(obj,10);
+
+        System.out.println(obj.toString());
+
+        Method show = clazz.getDeclaredMethod("show");
+        show.invoke(obj);
+
+        Field name = clazz.getDeclaredField("name");
+        name.setAccessible(true);
+        name.set(obj,"RICK");
+        System.out.println(obj);
+    }
+
+    @Test
+    public void test1(){
+        Class c1=Object.class;
+
+        Class c2 = Comparable.class;
+
+        Class c3 = String[].class;
+
+        Class c4=int[][].class;
+        Class c5= ElementType.class;
+        Class c6=Override.class;
+        Class c7=int.class;
+        Class c8=void.class;
+        Class c9=Class.class;
+
+        System.out.println(c1);
+        System.out.println(c2);
+        System.out.println(c3);
+        System.out.println(c4);
+        System.out.println(c5);
+        System.out.println(c6);
+        System.out.println(c7);
+        System.out.println(c8);
+        System.out.println(c9);
+       
 
 
     }
