@@ -18,13 +18,18 @@ public class StreamAPITest {
     public void test1(){
 
         List list= Arrays.asList("a,b,c");
+        //顺序流
         Stream stream= list.stream();
+        //并行流
+        Stream streamb= list.parallelStream();
+
 
         String[] strs=new String[10];
         Stream stream1=Arrays.stream(strs);
 
         Stream<String> stream2 = Stream.of("a", "bc");
 
+        //无限流
         Stream.iterate(0,a->a+1).limit(10).forEach(System.out::println);
 
         Stream.generate(Math::random).limit(10).forEach(System.out::println);
@@ -36,6 +41,15 @@ public class StreamAPITest {
         Stream<Integer> stream= list.stream();
 
         stream.filter(e->e>3).forEach(System.out::println);
+        System.out.println();
+
+        stream= list.stream();
+        stream.limit(3).forEach(System.out::println);
+        System.out.println();
+
+        stream= list.stream();
+        stream.skip(3).forEach(System.out::println);
+        System.out.println();
 
         Stream<Integer> stream2= list.stream();
         stream2.distinct().forEach(System.out::println);
@@ -53,6 +67,15 @@ public class StreamAPITest {
 
     @Test
     public void test4(){
+
+        List list= Arrays.asList("a","A","c");
+        Stream<String> stream= list.stream();
+
+        stream.sorted().forEach(System.out::println);
+    }
+
+    @Test
+    public void test5(){
         List list= Arrays.asList(1,2,3,4,5,5);
         Stream<Integer> stream= list.stream();
 
@@ -61,7 +84,7 @@ public class StreamAPITest {
     }
 
     @Test
-    public void test5(){
+    public void test6(){
         List list= Arrays.asList(1,2,4,3,5,5);
         Stream<Integer> stream= list.stream();
         
